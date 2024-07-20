@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce Website Sign-Up and Login Flow
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+This project is a simple sign-up and login flow for an e-commerce website where users can mark the categories they are interested in. The project follows the design provided in the Figma link below and implements 4 screens: registration for new users, login for existing users, and a protected page showing a list of categories.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Design Link
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Figma Design](https://www.figma.com/file/EjNZkDNTtgERV5PgF0mxnt/MERN-Assignment?type=design&node-id=33%3A667&mode=design&t=6k9GiDcswPavM0TD-1)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **User Registration**: Allows new users to register.
+2. **User Login**: Allows existing users to log in.
+3. **Protected Page**: Accessible only to logged-in users, displaying a list of categories.
+4. **Category Selection**: Users can mark the categories they are interested in.
+5. **Pagination**: The list of categories is paginated, showing only 6 categories at a time.
+6. **Persistence**: Users' selected categories are saved in the database and are persistent across sessions.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: A React framework for server-side rendering and generating static websites.
+- **PostgreSQL**: A powerful, open-source object-relational database system.
+- **Prisma**: A next-generation ORM for Node.js and TypeScript.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup Instructions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+- Node.js (version 12 or higher)
+- PostgreSQL (version 10 or higher)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/e-commerce-signup-login.git
+    cd ecommerce-demo
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3. **Setup the database**:
+    - Ensure PostgreSQL is running on your system.
+    - Create a new PostgreSQL database.
+    - Create a `.env` file in the root directory and add the following environment variables:
+        ```env
+        DATABASE_URL="postgresql://username:password@localhost:5432/yourdatabase"
+        RESEND_API_KEY="your_resend_api_key"
+        ```
+
+4. **Generate Prisma client**:
+    ```bash
+    npx prisma generate
+    ```
+
+5. **Run database migrations**:
+    ```bash
+    npx prisma migrate dev --name init
+    ```
+
+6. **Seed the database with fake data**:
+    ```bash
+    npx ts-node prisma/seed.ts
+    ```
+
+7. **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+

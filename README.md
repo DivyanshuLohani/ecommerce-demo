@@ -19,10 +19,10 @@ This project is a simple sign-up and login flow for an e-commerce website where 
 
 ## Tech Stack
 
-- **Next.js**: A React framework for server-side rendering and generating static websites.
-- **PostgreSQL**: A powerful, open-source object-relational database system.
-- **Prisma**: A next-generation ORM for Node.js and TypeScript.
-- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ## Setup Instructions
 

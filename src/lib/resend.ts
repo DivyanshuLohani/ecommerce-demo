@@ -9,7 +9,7 @@ export async function sendOTP(
   verifyCode: string
 ) {
   const { data, error } = await resend.emails.send({
-    from: "User <onboarding@resend.dev>",
+    from: "Team <team@webbros.online>",
     to: [toEmail],
     subject: "Verification code",
     react: EmailTemplate(name, verifyCode),

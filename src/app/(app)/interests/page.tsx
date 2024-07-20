@@ -14,7 +14,6 @@ export default async function Page({
 
   const categories = await getCategories(page);
   const maxPages = await getMaxPages();
-  console.log(categories);
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col border p-10 rounded-lg mt-10 w-2/5">

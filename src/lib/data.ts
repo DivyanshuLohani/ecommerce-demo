@@ -21,9 +21,6 @@ export async function getCategories(page: number) {
   const userSelected = await prisma.userCategories.findMany({
     where: {
       userId: user.id,
-      categoryId: {
-        in: categories.map((e) => e.id),
-      },
     },
     select: { categoryId: true },
   });

@@ -3,7 +3,8 @@
 import { prisma } from "./prisma";
 import bcrypt from "bcryptjs";
 import { sendOTP } from "./resend";
-import { setCookies } from "./auth";
+import { getUser, setCookies } from "./auth";
+import { revalidatePath } from "next/cache";
 
 export async function login(state: any, data: FormData) {
   const email = data.get("email") as string;
@@ -129,4 +130,29 @@ export async function verifyUser(state: any, data: FormData) {
     success: true,
     message: "Verified",
   };
+}
+
+export async function saveCategory(state: any, data: FormData) {
+  const user = await getUser();
+  if (!user) return { success: false, message: "User not logged in" };
+
+  const categoryId = parseInt(data.get("categoryID") as string);
+
+  const existing = await prisma.userCategories.findFirst({
+    where: { categoryId, userId: user.id },
+  });
+  if (existing) {
+    await prisma.userCategories.delete({
+      where: { userId_categoryId: { categoryId, userId: user.id } },
+    });
+  } else {
+    const a = await prisma.userCategories.create({
+      data: {
+        categoryId,
+        userId: user.id,
+      },
+    });
+  }
+  revalidatePath("/interests");
+  return { success: true, message: "Ok" };
 }

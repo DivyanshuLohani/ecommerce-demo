@@ -19,6 +19,8 @@ model User {
   password       String
   categories     Category[]       @relation("UserCategories")
   UserCategories UserCategories[]
+  verified       Boolean          @default(false)
+  verifyCode     String?
 }
 
 model Category {
